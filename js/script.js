@@ -35,7 +35,11 @@ const nextImg = document.querySelector(".next")
 const prevImg = document.querySelector (".prev")
 
 // GESTIAMO IL BOTTONE NEXT
-nextImg.addEventListener("click", nextImage)
+nextImg.addEventListener("click", function(){
+    nextImage();
+    clearInterval(autoplayInteval)
+    autoplayInteval = setInterval(nextImage, 3000)
+});
 autoplayInteval = setInterval(nextImage, 3000)
 
 // GESTIAMO IL BOTTONE PREVIOUS
