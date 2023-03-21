@@ -37,38 +37,38 @@ const prevImg = document.querySelector (".prev")
 // GESTIAMO IL BOTTONE NEXT
 nextImg.addEventListener("click", function(){
     nextImage();
-    clearInterval(autoplayInteval)
-    autoplayInteval = setInterval(nextImage, 3000)
+    clearInterval(autoplayInteval);
+    autoplayInteval = setInterval(nextImage, 3000);
 });
-autoplayInteval = setInterval(nextImage, 3000)
+autoplayInteval = setInterval(nextImage, 3000);
 
 // GESTIAMO IL BOTTONE PREVIOUS
 
 prevImg.addEventListener("click", function() {
-    
-    itemsArrey[showItemInIndex].classList.remove("active");
-    
-    if (showItemInIndex === 0){
-        showItemInIndex = imgArrey.length -1
-    } else{
-        showItemInIndex--;
-
-    }
-
-    itemsArrey[showItemInIndex].classList.add("active");
+    prevImage();
+    clearInterval(autoplayInteval);
+    autoplayInteval = setInterval(prevImage, 3000)
 });
 
 // FUNZIONE PER L'IMMAGINE SUCCESSIVA
 function nextImage() {
     // FACCIAMO SCORRERE LE IMMAGINI
-    itemsArrey[showItemInIndex].classList.remove("active");
-    
+    itemsArrey[showItemInIndex].classList.remove("active");   
     if (showItemInIndex < imgArrey.length - 1) {
         showItemInIndex++;
     } else {
-        showItemInIndex = 0
+        showItemInIndex = 0;
     }
+    itemsArrey[showItemInIndex].classList.add("active");
+}
 
+function prevImage() {
+    itemsArrey[showItemInIndex].classList.remove("active");
+    if (showItemInIndex === 0){
+        showItemInIndex = imgArrey.length -1;
+    } else{
+        showItemInIndex--;
+    }
     itemsArrey[showItemInIndex].classList.add("active");
 }
 
