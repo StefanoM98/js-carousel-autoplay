@@ -36,7 +36,7 @@ const prevImg = document.querySelector (".prev")
 
 // GESTIAMO IL BOTTONE NEXT
 nextImg.addEventListener("click", nextImage)
-setInterval(nextImage, 3000)
+autoplayInteval = setInterval(nextImage, 3000)
 
 // GESTIAMO IL BOTTONE PREVIOUS
 
@@ -68,3 +68,12 @@ function nextImage() {
     itemsArrey[showItemInIndex].classList.add("active");
 }
 
+// BLOCCO DEL CAROSELLO IN HOVER
+
+itemsContainer.addEventListener("mouseover", function(){
+    clearInterval(autoplayInteval);
+});
+
+itemsContainer.addEventListener("mouseout", function(){
+    autoplayInteval = setInterval(nextImage, 3000);
+});
